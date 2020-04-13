@@ -12,10 +12,10 @@ import org.apache.poi.xssf.usermodel.XSSFWorkbook;
 
 public class ReadExceldemo {
 
-	public static void readData() throws FileNotFoundException{
-		File file =new File("D:\\rough\\First\\SeleniumTest\\src\\excelExportAndFileIO\\Datasheet.xlsx.xlsx"); //path is not correct
+	public static void readData() throws IOException{
+		File file =new File("D:\\rough\\First\\SeleniumTest\\src\\excelExportAndFileIO\\Datasheet.xlsx"); //path is not correct
 		FileInputStream fis =new FileInputStream(file);
-		Workbook wb=new XSSFWorkbook();
+		Workbook wb=new XSSFWorkbook(fis);
 		Sheet sh= wb.getSheet("name");
 		int rowcount = sh.getLastRowNum() -sh.getFirstRowNum();
 		for(int i=0;i<=rowcount;i++)
